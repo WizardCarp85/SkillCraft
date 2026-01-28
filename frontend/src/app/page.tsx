@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { Zap, Edit, Search, Handshake, DollarSign, Target, MessageCircle, Globe, BookOpen, Code, Music, Paintbrush, Users, TrendingUp, Shield, ArrowRight, Star, Quote, CheckCircle2, Sparkles } from 'lucide-react';
+import Image from 'next/image';
+import { Zap, Edit, Search, Handshake, DollarSign, Target, MessageCircle, Globe, BookOpen, Code, Music, Paintbrush, Users, TrendingUp, Shield, ArrowRight, Star, Quote, CheckCircle2, Sparkles, Menu, Github, Twitter, Linkedin } from 'lucide-react';
 
 export default function HomePage() {
     const { user, loading } = useAuth();
@@ -19,66 +20,75 @@ export default function HomePage() {
     return (
         <div className="min-h-screen bg-black overflow-hidden">
             {/* Animated background gradient */}
-            <div className="fixed inset-0 bg-gradient-to-br from-green-900/20 via-black to-emerald-900/20 pointer-events-none"></div>
+            <div className="fixed inset-0 bg-linear-to-br from-green-900/20 via-black to-emerald-900/20 pointer-events-none animate-smooth"></div>
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent_50%)] pointer-events-none"></div>
             
             {/* Hero Section */}
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
-                <nav className="flex items-center justify-between mb-20">
-                    <Link href="/" className="text-2xl font-bold text-white flex items-center gap-2 group">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/50 group-hover:shadow-green-500/80 group-hover:scale-110 transition-all">
-                            <Zap className="w-6 h-6 text-white" />
+            <div className="relative w-full px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+                {/* Enhanced Navbar */}
+                <nav className="max-w-7xl mx-auto backdrop-blur-md bg-black/40 border border-white/10 rounded-xl px-6 py-3 mb-16 sticky top-4 z-50 animate-smooth">
+                    <div className="flex items-center justify-between">
+                        <Link href="/" className="text-xl font-bold text-white flex items-center gap-2 group">
+                            <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-1 ring-white/10 group-hover:ring-green-500/50 animate-smooth">
+                                <Image 
+                                    src="/logo.png" 
+                                    alt="SkillCraft Logo" 
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <span className="hidden sm:inline">Skill<span className="text-green-400">Craft</span></span>
+                        </Link>
+                        
+                        <div className="flex items-center gap-3">
+                            <Link
+                                href="/login"
+                                className="px-4 py-2 text-gray-300 hover:text-white animate-smooth font-medium hover:bg-white/5 rounded-lg text-sm"
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                href="/register"
+                                className="px-5 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-500 hover:to-emerald-500 animate-smooth shadow-md shadow-green-500/20 hover:shadow-green-500/30 text-sm"
+                            >
+                                Sign Up Free
+                            </Link>
                         </div>
-                        <span>Skill<span className="text-green-400">Craft</span></span>
-                    </Link>
-                    <div className="flex items-center gap-3">
-                        <Link
-                            href="/login"
-                            className="px-6 py-2.5 text-gray-300 hover:text-white transition-all font-medium hover:bg-white/5 rounded-lg"
-                        >
-                            Login
-                        </Link>
-                        <Link
-                            href="/register"
-                            className="px-6 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-500 hover:to-emerald-500 transition-all shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:-translate-y-0.5"
-                        >
-                            Sign Up Free
-                        </Link>
                     </div>
                 </nav>
 
-                <div className="text-center max-w-5xl mx-auto">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-8">
-                        <Sparkles className="w-4 h-4 text-green-400" />
+                <div className="text-center max-w-4xl mx-auto">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 mb-6 animate-smooth hover:bg-green-500/15">
+                        <Sparkles className="w-4 h-4 text-green-400 animate-pulse" />
                         <span className="text-green-400 text-sm font-medium">Join 10,000+ skill swappers worldwide</span>
                     </div>
                     
-                    <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-8 leading-tight">
+                    <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
                         Learn by{' '}
                         <span className="relative inline-block">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 animate-pulse">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-green-500">
                                 Teaching
                             </span>
-                            <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-400 blur-2xl opacity-20"></div>
+                            <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-400 blur-2xl opacity-20 animate-pulse"></div>
                         </span>
                     </h1>
                     
-                    <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
                         The ultimate skill bartering platform. Exchange knowledge directly—no money, no middleman. 
                         <span className="text-green-400 font-semibold"> Just pure learning.</span>
                     </p>
                     
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
                         <Link
                             href="/register"
-                            className="group px-10 py-5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-500 hover:to-emerald-500 transform hover:scale-105 hover:-translate-y-1 transition-all text-lg shadow-2xl shadow-green-500/40 hover:shadow-green-500/60 flex items-center justify-center gap-2"
+                            className="group px-8 py-3.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:from-green-500 hover:to-emerald-500 transform hover:scale-105 animate-smooth text-base shadow-lg shadow-green-500/30 hover:shadow-green-500/50 flex items-center justify-center gap-2"
                         >
                             Get Started Free
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 animate-smooth" />
                         </Link>
                         <Link
                             href="#how-it-works"
-                            className="px-10 py-5 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/10 transition-all text-lg border border-white/10 hover:border-green-500/50"
+                            className="px-8 py-3.5 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-base border border-white/10 hover:border-green-500/50"
                         >
                             See How It Works
                         </Link>
@@ -103,24 +113,24 @@ export default function HomePage() {
             </div>
 
             {/* How It Works */}
-            <section id="how-it-works" className="relative py-32 bg-gradient-to-b from-zinc-900/50 to-black">
+            <section id="how-it-works" className="relative py-24 bg-gradient-to-b from-zinc-900/50 to-black w-full">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             How It <span className="text-green-400">Works</span>
                         </h2>
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                             Three simple steps to start your skill-swapping journey
                         </p>
                     </div>
                     
-                    <div className="grid md:grid-cols-3 gap-8 relative">
+                    <div className="grid md:grid-cols-3 gap-6 relative">
                         {/* Connection lines */}
                         <div className="hidden md:block absolute top-1/3 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-500/30 to-transparent"></div>
                         
                         {[
                             {
-                                icon: <Edit className="w-10 h-10" />,
+                                icon: <Edit className="w-8 h-8" />,
                                 step: '01',
                                 title: 'List Your Skills',
                                 description: 'Tell us what you can teach and what you want to learn. The more specific, the better your matches!',
@@ -136,7 +146,7 @@ export default function HomePage() {
                                 delay: 'delay-100'
                             },
                             {
-                                icon: <Handshake className="w-10 h-10" />,
+                                icon: <Handshake className="w-8 h-8" />,
                                 step: '03',
                                 title: 'Start Learning',
                                 description: 'Connect, chat, and schedule sessions. Exchange knowledge on your own terms, completely free.',
@@ -148,17 +158,17 @@ export default function HomePage() {
                                 key={index}
                                 className={`relative group ${step.delay}`}
                             >
-                                <div className="relative bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl p-8 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-2 shadow-2xl hover:shadow-green-500/20">
+                                <div className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-green-500/20">
                                     {/* Step number */}
-                                    <div className="absolute -top-4 -right-4 w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-green-500/50">
+                                    <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-linear-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-green-500/50">
                                         {step.step}
                                     </div>
                                     
-                                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                                    <div className={`w-14 h-14 rounded-xl bg-linear-to-br ${step.color} flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform shadow-lg`}>
                                         {step.icon}
                                     </div>
                                     
-                                    <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
+                                    <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
                                     <p className="text-gray-400 leading-relaxed">{step.description}</p>
                                 </div>
                             </div>
@@ -168,39 +178,39 @@ export default function HomePage() {
             </section>
 
             {/* Features Grid */}
-            <section className="relative py-32">
+            <section className="relative py-24 w-full">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             Why Choose <span className="text-green-400">SkillCraft?</span>
                         </h2>
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                             The smartest way to learn and teach anything
                         </p>
                     </div>
                     
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                         {[
                             { 
-                                icon: <DollarSign className="w-7 h-7" />, 
+                                icon: <DollarSign className="w-6 h-6" />, 
                                 title: 'Completely Free', 
                                 desc: 'No hidden fees, no subscriptions. Just pure knowledge exchange between people.',
                                 gradient: 'from-green-500 to-emerald-500'
                             },
                             { 
-                                icon: <Target className="w-7 h-7" />, 
+                                icon: <Target className="w-6 h-6" />, 
                                 title: 'Smart AI Matching', 
                                 desc: 'Advanced algorithm finds your perfect skill-swap partner based on mutual interests.',
                                 gradient: 'from-blue-500 to-cyan-500'
                             },
                             { 
-                                icon: <MessageCircle className="w-7 h-7" />, 
+                                icon: <MessageCircle className="w-6 h-6" />, 
                                 title: 'Secure Chat', 
                                 desc: 'Built-in messaging system keeps all communication safe and private.',
                                 gradient: 'from-purple-500 to-pink-500'
                             },
                             { 
-                                icon: <Globe className="w-7 h-7" />, 
+                                icon: <Globe className="w-6 h-6" />, 
                                 title: 'Learn Anything', 
                                 desc: 'From coding to cooking, music to marketing—every skill has value here.',
                                 gradient: 'from-orange-500 to-red-500'
@@ -208,12 +218,12 @@ export default function HomePage() {
                         ].map((feature, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-8 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-green-500/10"
+                                className="group relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/10"
                             >
-                                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-lg`}>
+                                <div className={`w-12 h-12 rounded-lg bg-linear-to-br ${feature.gradient} flex items-center justify-center text-white mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform shadow-md`}>
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                                <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
                                 <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
                             </div>
                         ))}
@@ -222,13 +232,13 @@ export default function HomePage() {
             </section>
 
             {/* Skills Showcase */}
-            <section className="relative py-32 bg-gradient-to-b from-black to-zinc-900/50">
+            <section className="relative py-24 bg-gradient-to-b from-black to-zinc-900/50 w-full">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             Popular <span className="text-green-400">Skills</span>
                         </h2>
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                             Join thousands swapping these trending skills right now
                         </p>
                     </div>
@@ -244,9 +254,9 @@ export default function HomePage() {
                         ].map((skill, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1 text-center"
+                                className="group relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1 text-center"
                             >
-                                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-lg`}>
+                                <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${skill.color} flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-lg`}>
                                     {skill.icon}
                                 </div>
                                 <p className="text-white font-semibold mb-1">{skill.label}</p>
@@ -292,7 +302,7 @@ export default function HomePage() {
                         ].map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="relative bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl p-8 border border-zinc-800/50 hover:border-green-500/30 transition-all duration-300 group"
+                                className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-3xl p-8 border border-zinc-800/50 hover:border-green-500/30 transition-all duration-300 group"
                             >
                                 {/* Rating stars */}
                                 <div className="flex gap-1 mb-4">
@@ -305,7 +315,7 @@ export default function HomePage() {
                                 <p className="text-gray-300 mb-6 text-lg leading-relaxed">&quot;{testimonial.quote}&quot;</p>
                                 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                    <div className="w-12 h-12 rounded-full bg-linear-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                         {testimonial.author[0]}
                                     </div>
                                     <div>
@@ -332,7 +342,7 @@ export default function HomePage() {
                                 key={index}
                                 className="text-center group"
                             >
-                                <div className={`inline-flex p-6 rounded-2xl bg-gradient-to-br ${item.color} mb-6 group-hover:scale-110 transition-transform shadow-2xl`}>
+                                <div className={`inline-flex p-6 rounded-2xl bg-linear-to-br ${item.color} mb-6 group-hover:scale-110 transition-transform shadow-2xl`}>
                                     <div className="text-white">{item.icon}</div>
                                 </div>
                                 <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">{item.stat}</h3>
@@ -346,13 +356,13 @@ export default function HomePage() {
             {/* Trust & Safety */}
             <section className="relative py-32">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-xl rounded-3xl p-12 md:p-16 text-center border border-green-500/20 overflow-hidden">
+                    <div className="relative bg-linear-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-xl rounded-3xl p-12 md:p-16 text-center border border-green-500/20 overflow-hidden">
                         {/* Decorative elements */}
                         <div className="absolute top-0 left-0 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"></div>
                         <div className="absolute bottom-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
                         
                         <div className="relative">
-                            <div className="inline-flex p-5 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 mb-8 shadow-2xl shadow-green-500/50">
+                            <div className="inline-flex p-5 rounded-2xl bg-linear-to-br from-green-500 to-emerald-500 mb-8 shadow-2xl shadow-green-500/50">
                                 <Shield className="w-14 h-14 text-white" />
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -379,10 +389,10 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="/register"
-                            className="group px-12 py-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-500 hover:to-emerald-500 transition-all text-xl shadow-2xl shadow-green-500/50 hover:shadow-green-500/70 hover:scale-105 flex items-center justify-center gap-3"
+                            className="group px-12 py-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-500 hover:to-emerald-500 animate-smooth text-xl shadow-2xl shadow-green-500/50 hover:shadow-green-500/70 hover:scale-105 flex items-center justify-center gap-3"
                         >
                             Create Free Account
-                            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 animate-smooth" />
                         </Link>
                     </div>
                     
@@ -390,17 +400,70 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="relative border-t border-zinc-800/50 py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                                <Zap className="w-5 h-5 text-white" />
+            {/* Enhanced Footer */}
+            <footer className="relative border-t border-zinc-800/50 bg-zinc-950/50 backdrop-blur-md">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div className="grid md:grid-cols-4 gap-12 mb-12">
+                        {/* Brand */}
+                        <div className="md:col-span-2">
+                            <Link href="/" className="flex items-center gap-3 mb-4 group">
+                                <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-green-500/30">
+                                    <Image 
+                                        src="/logo.png" 
+                                        alt="SkillCraft Logo" 
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <span className="text-2xl font-bold text-white">Skill<span className="text-green-400">Craft</span></span>
+                            </Link>
+                            <p className="text-gray-400 mb-6 max-w-md">
+                                The ultimate skill bartering platform. Exchange knowledge, learn from each other, and grow together—completely free.
+                            </p>
+                            <div className="flex gap-4">
+                                <a href="#" className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-green-400 animate-smooth">
+                                    <Twitter className="w-5 h-5" />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-green-400 animate-smooth">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-green-400 animate-smooth">
+                                    <Linkedin className="w-5 h-5" />
+                                </a>
                             </div>
-                            <span className="text-white font-semibold">Skill<span className="text-green-400">Craft</span></span>
                         </div>
-                        <p className="text-gray-400 text-sm">&copy; 2026 SkillCraft. Exchange knowledge, grow together.</p>
+                        
+                        {/* Quick Links */}
+                        <div>
+                            <h4 className="text-white font-semibold mb-4">Platform</h4>
+                            <ul className="space-y-3">
+                                <li><Link href="#how-it-works" className="text-gray-400 hover:text-green-400 animate-smooth">How It Works</Link></li>
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">Features</Link></li>
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">Success Stories</Link></li>
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">FAQ</Link></li>
+                            </ul>
+                        </div>
+                        
+                        {/* Company */}
+                        <div>
+                            <h4 className="text-white font-semibold mb-4">Company</h4>
+                            <ul className="space-y-3">
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">About Us</Link></li>
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">Contact</Link></li>
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">Privacy Policy</Link></li>
+                                <li><Link href="#" className="text-gray-400 hover:text-green-400 animate-smooth">Terms of Service</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    {/* Bottom */}
+                    <div className="pt-8 border-t border-zinc-800/50 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <p className="text-gray-500 text-sm">&copy; 2026 SkillCraft. Exchange knowledge, grow together.</p>
+                        <div className="flex gap-6 text-sm">
+                            <Link href="#" className="text-gray-500 hover:text-green-400 animate-smooth">Privacy</Link>
+                            <Link href="#" className="text-gray-500 hover:text-green-400 animate-smooth">Terms</Link>
+                            <Link href="#" className="text-gray-500 hover:text-green-400 animate-smooth">Cookies</Link>
+                        </div>
                     </div>
                 </div>
             </footer>

@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
-import { Zap, Lock, User } from 'lucide-react';
+import Image from 'next/image';
+import { Lock, User, ArrowRight, Check, TrendingUp, Users, Sparkles } from 'lucide-react';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -27,72 +28,146 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-black">
-            <div className="glass-card p-8 rounded-3xl shadow-2xl w-full max-w-md">
-                <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-gradient-to-br from-green-600 to-emerald-600 mb-4">
-                        <Zap className="w-8 h-8 text-white" />
+        <div className="min-h-screen bg-black flex">
+            {/* Left Side - Benefits */}
+            <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-zinc-900 to-black items-center justify-center p-12 shadow-[inset_-20px_0_30px_-15px_rgba(0,0,0,0.3)]">
+                <div className="max-w-lg">
+                    <div className="mb-12">
+                        <Sparkles className="w-16 h-16 text-green-400 mb-6 animate-float" />
+                        <h2 className="text-4xl font-bold text-white mb-4">
+                            Continue Your <span className="text-transparent bg-clip-text bg-linear-to-r from-green-400 to-emerald-400">Growth</span>
+                        </h2>
+                        <p className="text-gray-400 text-lg">
+                            Join thousands of learners exchanging skills and growing together.
+                        </p>
                     </div>
-                    <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-                    <p className="text-gray-400">Sign in to continue your learning journey</p>
+
+                    <div className="space-y-6">
+                        <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-smooth hover:bg-white/10">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <Check className="w-5 h-5 text-green-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-white font-semibold mb-1">Active Community</h3>
+                                <p className="text-gray-400 text-sm">Connect with passionate learners from around the world</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-smooth hover:bg-white/10">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <TrendingUp className="w-5 h-5 text-green-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-white font-semibold mb-1">Track Progress</h3>
+                                <p className="text-gray-400 text-sm">Monitor your learning journey and skill development</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-smooth hover:bg-white/10">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <Users className="w-5 h-5 text-green-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-white font-semibold mb-1">Smart Matching</h3>
+                                <p className="text-gray-400 text-sm">Find perfect skill swap partners based on your goals</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
+                        <p className="text-gray-300 italic mb-3">
+                            &quot;SkillCraft transformed how I learn. I&apos;ve mastered 3 new skills this month!&quot;
+                        </p>
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600"></div>
+                            <div>
+                                <p className="text-white font-medium">Sarah Chen</p>
+                                <p className="text-gray-400 text-sm">Active Member</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                {error && (
-                    <div className="bg-red-500/10 border border-red-500/30 text-red-300 px-4 py-3 rounded-xl mb-6 backdrop-blur-sm">
-                        {error}
-                    </div>
-                )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                        <label className="block text-gray-300 text-sm font-medium mb-2">
-                            Username
-                        </label>
-                        <div className="relative">
-                            <User className="absolute left-3 top-3 w-5 h-5 text-gray-500" />
-                            <input
-                                type="text"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                className="w-full pl-11 pr-4 py-3 bg-zinc-900/50 border border-zinc-800/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-                                placeholder="Enter your username"
-                                required
+            {/* Right Side - Form */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+                <div className="w-full max-w-md">
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center gap-3 mb-12 group">
+                        <div className="relative w-12 h-12 rounded-xl overflow-hidden ring-1 ring-white/10 group-hover:ring-green-500/30 animate-smooth">
+                            <Image 
+                                src="/logo.png" 
+                                alt="SkillCraft Logo" 
+                                fill
+                                className="object-cover"
                             />
                         </div>
-                    </div>
-
-                    <div>
-                        <label className="block text-gray-300 text-sm font-medium mb-2">
-                            Password
-                        </label>
-                        <div className="relative">
-                            <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-500" />
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="w-full pl-11 pr-4 py-3 bg-zinc-900/50 border border-zinc-800/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-                                placeholder="Enter your password"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-xl hover:from-green-500 hover:to-emerald-500 transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 shadow-lg shadow-green-500/20"
-                    >
-                        {loading ? 'Signing in...' : 'Sign In'}
-                    </button>
-                </form>
-
-                <p className="text-gray-400 text-center mt-6">
-                    Don&apos;t have an account?{' '}
-                    <Link href="/register" className="text-green-400 hover:text-green-300 font-medium">
-                        Sign up
+                        <span className="text-2xl font-bold text-white">Skill<span className="text-green-400">Craft</span></span>
                     </Link>
-                </p>
+
+                    <div className="mb-10">
+                        <h1 className="text-4xl font-bold text-white mb-3">Welcome Back</h1>
+                        <p className="text-gray-400 text-lg">Sign in to continue your learning journey</p>
+                    </div>
+
+                    {error && (
+                        <div className="bg-red-500/10 border border-red-500/30 text-red-300 px-4 py-3 rounded-xl mb-6 backdrop-blur-sm animate-smooth">
+                            {error}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                        <div>
+                            <label className="block text-gray-300 text-sm font-medium mb-2">
+                                Username
+                            </label>
+                            <div className="relative">
+                                <User className="absolute left-4 top-4 w-5 h-5 text-gray-500" />
+                                <input
+                                    type="text"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    className="w-full pl-12 pr-4 py-4 bg-zinc-900/50 border border-zinc-800/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent animate-smooth"
+                                    placeholder="Enter your username"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label className="block text-gray-300 text-sm font-medium mb-2">
+                                Password
+                            </label>
+                            <div className="relative">
+                                <Lock className="absolute left-4 top-4 w-5 h-5 text-gray-500" />
+                                <input
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="w-full pl-12 pr-4 py-4 bg-zinc-900/50 border border-zinc-800/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent animate-smooth"
+                                    placeholder="Enter your password"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="group w-full py-4 bg-linear-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-500 hover:to-emerald-500 hover:scale-[1.02] animate-smooth disabled:opacity-50 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 flex items-center justify-center gap-2"
+                        >
+                            {loading ? 'Signing in...' : 'Sign In'}
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 animate-smooth" />
+                        </button>
+                    </form>
+
+                    <p className="text-gray-400 text-center mt-8">
+                        Don&apos;t have an account?{' '}
+                        <Link href="/register" className="text-green-400 hover:text-green-300 font-medium animate-smooth">
+                            Sign up for free
+                        </Link>
+                    </p>
+                </div>
             </div>
         </div>
     );

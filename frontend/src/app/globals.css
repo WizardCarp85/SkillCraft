@@ -1,14 +1,11 @@
 @import "tailwindcss";
 
-:root {
+@theme inline {
   --background: #000000;
   --foreground: #f5f5f5;
   --green-primary: #10b981;
   --green-dark: #059669;
   --green-light: #34d399;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -18,7 +15,12 @@
 body {
   background: #000000;
   color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-outfit), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 700;
 }
 
 @layer utilities {
@@ -32,5 +34,31 @@ body {
   
   .gradient-green {
     @apply bg-gradient-to-r from-green-600 to-emerald-600;
+  }
+  
+  .animate-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+    }
   }
 }
