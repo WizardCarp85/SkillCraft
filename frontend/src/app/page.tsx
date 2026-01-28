@@ -24,9 +24,17 @@ export default function HomePage() {
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent_50%)] pointer-events-none"></div>
             
             {/* Hero Section */}
-            <div className="relative w-full min-h-screen flex flex-col pt-6">
+            <div className="relative w-full min-h-screen flex flex-col pt-6 overflow-hidden">
+                {/* Animated grid background */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20"></div>
+                
+                {/* Floating orbs */}
+                <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-green-500/20 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+                <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-green-400/10 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+                
                 {/* Enhanced Navbar */}
-                <div className="w-full px-4 sm:px-6 lg:px-8 mb-8">
+                <div className="relative w-full px-4 sm:px-6 lg:px-8 mb-8 z-10">
                     <nav className="max-w-7xl mx-auto backdrop-blur-md bg-black/40 border border-white/10 rounded-xl px-6 py-4 sticky top-4 z-50 animate-smooth">
                         <div className="flex items-center justify-between">
                             <Link href="/" className="text-2xl font-bold text-white flex items-center gap-3 group">
@@ -59,7 +67,7 @@ export default function HomePage() {
                     </nav>
                 </div>
 
-                <div className="text-center max-w-4xl mx-auto flex-1 flex flex-col justify-center pb-20 px-4 sm:px-6 lg:px-8">
+                <div className="relative text-center max-w-4xl mx-auto flex-1 flex flex-col justify-center pb-20 px-4 sm:px-6 lg:px-8 z-10">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 mb-6 animate-smooth hover:bg-green-500/15 mx-auto">
                         <Sparkles className="w-4 h-4 text-green-400 animate-pulse" />
                         <span className="text-green-400 text-sm font-medium">Join 10,000+ skill swappers worldwide</span>
@@ -96,19 +104,35 @@ export default function HomePage() {
                         </Link>
                     </div>
 
-                    {/* Trust badges */}
-                    <div className="flex flex-wrap items-center justify-center gap-8 text-gray-400">
-                        <div className="flex items-center gap-2">
+                    {/* Trust badges with enhanced styling */}
+                    <div className="flex flex-wrap items-center justify-center gap-6 mt-2">
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900/50 border border-zinc-800/50 hover:border-green-500/30 animate-smooth">
                             <CheckCircle2 className="w-5 h-5 text-green-400" />
-                            <span className="text-sm">100% Free</span>
+                            <span className="text-sm text-gray-300 font-medium">100% Free</span>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900/50 border border-zinc-800/50 hover:border-green-500/30 animate-smooth">
                             <CheckCircle2 className="w-5 h-5 text-green-400" />
-                            <span className="text-sm">No Credit Card</span>
+                            <span className="text-sm text-gray-300 font-medium">No Credit Card</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="w-5 h-5 text-green-400" />
-                            <span className="text-sm">Secure Platform</span>
+                        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900/50 border border-zinc-800/50 hover:border-green-500/30 animate-smooth">
+                            <Shield className="w-5 h-5 text-green-400" />
+                            <span className="text-sm text-gray-300 font-medium">Secure Platform</span>
+                        </div>
+                    </div>
+
+                    {/* Quick stats */}
+                    <div className="mt-12 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+                        <div className="text-center">
+                            <div className="text-2xl md:text-3xl font-bold text-white mb-1">10K+</div>
+                            <div className="text-xs text-gray-500">Active Members</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-2xl md:text-3xl font-bold text-white mb-1">25K+</div>
+                            <div className="text-xs text-gray-500">Skills Swapped</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-2xl md:text-3xl font-bold text-white mb-1">4.9★</div>
+                            <div className="text-xs text-gray-500">Average Rating</div>
                         </div>
                     </div>
                 </div>
@@ -126,9 +150,15 @@ export default function HomePage() {
                         </p>
                     </div>
                     
-                    <div className="grid md:grid-cols-3 gap-6 relative">
-                        {/* Connection lines */}
+                    <div className="grid md:grid-cols-3 gap-8 relative">
+                        {/* Connection lines with arrows */}
                         <div className="hidden md:block absolute top-1/3 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-green-500/30 to-transparent"></div>
+                        <div className="hidden md:block absolute top-1/3 left-1/3 w-6 h-6 -translate-x-1/2 -translate-y-1/2">
+                            <ArrowRight className="w-6 h-6 text-green-500/50" />
+                        </div>
+                        <div className="hidden md:block absolute top-1/3 left-2/3 w-6 h-6 -translate-x-1/2 -translate-y-1/2">
+                            <ArrowRight className="w-6 h-6 text-green-500/50" />
+                        </div>
                         
                         {[
                             {
@@ -136,42 +166,44 @@ export default function HomePage() {
                                 step: '01',
                                 title: 'List Your Skills',
                                 description: 'Tell us what you can teach and what you want to learn. The more specific, the better your matches!',
-                                color: 'from-green-500 to-emerald-500',
-                                delay: 'delay-0'
+                                color: 'from-green-500 to-emerald-500'
                             },
                             {
                                 icon: <Search className="w-8 h-8" />,
                                 step: '02',
                                 title: 'Find Perfect Matches',
                                 description: 'Our smart algorithm connects you with people who have complementary skills and learning goals.',
-                                color: 'from-blue-500 to-cyan-500',
-                                delay: 'delay-100'
+                                color: 'from-blue-500 to-cyan-500'
                             },
                             {
                                 icon: <Handshake className="w-8 h-8" />,
                                 step: '03',
                                 title: 'Start Learning',
                                 description: 'Connect, chat, and schedule sessions. Exchange knowledge on your own terms, completely free.',
-                                color: 'from-purple-500 to-pink-500',
-                                delay: 'delay-200'
+                                color: 'from-purple-500 to-pink-500'
                             },
                         ].map((step, index) => (
                             <div
                                 key={index}
-                                className={`relative group ${step.delay}`}
+                                className="relative group"
                             >
-                                <div className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-green-500/20 min-h-[280px] flex flex-col">
-                                    {/* Step number */}
-                                    <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-linear-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-green-500/50">
+                                {/* Glow effect on hover */}
+                                <div className="absolute inset-0 bg-linear-to-br from-green-500/0 to-emerald-500/0 group-hover:from-green-500/5 group-hover:to-emerald-500/5 rounded-2xl blur-xl transition-all duration-500"></div>
+                                
+                                <div className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-8 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-green-500/20 min-h-70 flex flex-col">
+                                    {/* Step number with pulse effect */}
+                                    <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-linear-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/50 group-hover:scale-110 transition-transform">
                                         {step.step}
                                     </div>
                                     
-                                    <div className={`w-14 h-14 rounded-xl bg-linear-to-br ${step.color} flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform shadow-lg`}>
-                                        {step.icon}
+                                    {/* Icon container with enhanced styling */}
+                                    <div className={`relative w-16 h-16 rounded-xl bg-linear-to-br ${step.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
+                                        <div className="absolute inset-0 bg-white/20 rounded-xl blur group-hover:blur-md transition-all"></div>
+                                        <div className="relative">{step.icon}</div>
                                     </div>
                                     
-                                    <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                                    <p className="text-gray-400 leading-relaxed">{step.description}</p>
+                                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">{step.title}</h3>
+                                    <p className="text-gray-400 leading-relaxed text-[15px]">{step.description}</p>
                                 </div>
                             </div>
                         ))}
