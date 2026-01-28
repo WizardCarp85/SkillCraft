@@ -71,14 +71,6 @@ export default function DiscoverPage() {
         }));
     };
 
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center h-64">
-                <div className="text-white text-xl">Finding matches...</div>
-            </div>
-        );
-    }
-
     return (
         <div className="space-y-8">
             <div className="glass-card rounded-3xl p-8 shadow-xl">

@@ -7,17 +7,51 @@ import Image from 'next/image';
 export default function NavigationLoader() {
     const pathname = usePathname();
     const [loading, setLoading] = useState(false);
+    const [dots, setDots] = useState('');
+    const [textIndex, setTextIndex] = useState(0);
+    
+    // Get page-specific loading texts based on pathname
+    const getLoadingTexts = () => {
+        if (pathname.includes('/chat')) {
+            return ['Loading conversations', 'Fetching messages', 'Connecting to chat', 'Almost there'];
+        } else if (pathname.includes('/discover')) {
+            return ['Finding skill matches', 'Discovering talents', 'Searching the community', 'Finding your perfect match'];
+        } else if (pathname.includes('/connections')) {
+            return ['Loading connections', 'Fetching your network', 'Building bridges', 'Connecting people'];
+        } else if (pathname.includes('/profile')) {
+            return ['Loading profile', 'Fetching your details', 'Preparing your showcase', 'Almost ready'];
+        } else if (pathname.includes('/dashboard')) {
+            return ['Loading dashboard', 'Preparing your overview', 'Getting things ready', 'Welcome back'];
+        } else {
+            return ['Loading page', 'Fetching data', 'Almost there', 'Just a moment'];
+        }
+    };
+    
+    const loadingTexts = getLoadingTexts();
 
     useEffect(() => {
         setLoading(true);
         const timeout = setTimeout(() => setLoading(false), 500);
-        return () => clearTimeout(timeout);
+        
+        const dotsInterval = setInterval(() => {
+            setDots(prev => prev.length >= 3 ? '' : prev + '.');
+        }, 500);
+
+        const textInterval = setInterval(() => {
+            setTextIndex(prev => (prev + 1) % loadingTexts.length);
+        }, 2000);
+        
+        return () => {
+            clearTimeout(timeout);
+            clearInterval(dotsInterval);
+            clearInterval(textInterval);
+        };
     }, [pathname]);
 
     if (!loading) return null;
 
     return (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-100 animate-fadeIn">
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[100] animate-fadeIn">
             {/* Animated Background */}
             <div className="absolute inset-0">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
@@ -72,6 +106,14 @@ export default function NavigationLoader() {
                     <div className="absolute inset-0 animate-spin" style={{ animationDuration: '2s', animationDelay: '0.66s' }}>
                         <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-green-300 shadow-lg shadow-green-400/50" />
                     </div>
+                </div>
+
+                {/* Loading Text */}
+                <div className="text-center mt-4">
+                    <p className="text-lg font-medium text-green-400">
+                        {loadingTexts[textIndex]}{dots}
+                    </p>
+                    <p className="text-sm text-zinc-500 mt-1">Please wait</p>
                 </div>
             </div>
 

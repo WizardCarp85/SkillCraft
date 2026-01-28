@@ -149,14 +149,6 @@ export default function ChatPage() {
         return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     };
 
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center h-64">
-                <div className="text-white text-xl">Loading chats...</div>
-            </div>
-        );
-    }
-
     return (
         <div className="h-[calc(100vh-6rem)] max-h-[calc(100vh-6rem)]">
             <div className="glass-card rounded-2xl h-full flex overflow-hidden shadow-xl">
