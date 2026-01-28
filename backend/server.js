@@ -6,13 +6,14 @@ const connectDB = require('./config/db');
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/auth',authRoutes);
+app.use('/api/users',userRoutes);
 
 connectDB()
 
 app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+    console.log(`Server is listening on http://localhost:${PORT}`);
 });
-
