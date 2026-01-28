@@ -23,7 +23,7 @@ api.interceptors.request.use((config) => {
 // Auth API
 export const authAPI = {
     register: (data: { username: string; email: string; password: string }) =>
-        api.post('/auth/register', data),
+        api.post('/auth/signup', data),
     
     login: (data: { username: string; password: string }) =>
         api.post('/auth/login', data),
@@ -33,8 +33,15 @@ export const authAPI = {
 export const userAPI = {
     getMyProfile: () => api.get('/users/me'),
     
-    updateProfile: (data: { skillsHave: string[]; skillsWant: string[] }) =>
-        api.put('/users/profile', data),
+    updateProfile: (data: { 
+        skillsHave?: string[]; 
+        skillsWant?: string[];
+        displayName?: string;
+        bio?: string;
+        location?: string;
+        website?: string;
+        avatar?: string;
+    }) => api.put('/users/profile', data),
     
     getMatches: () => api.get('/users/matches'),
     

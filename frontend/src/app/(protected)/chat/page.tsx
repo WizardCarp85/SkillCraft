@@ -158,8 +158,8 @@ export default function ChatPage() {
     }
 
     return (
-        <div className="h-[calc(100vh-12rem)]">
-            <div className="glass-card rounded-3xl h-full flex overflow-hidden shadow-xl">
+        <div className="h-[calc(100vh-6rem)] max-h-[calc(100vh-6rem)]">
+            <div className="glass-card rounded-2xl h-full flex overflow-hidden shadow-xl">
                 {/* Conversations List */}
                 <div className="w-80 border-r border-white/10 flex flex-col">
                     <div className="p-4 border-b border-white/10">

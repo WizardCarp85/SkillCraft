@@ -8,6 +8,12 @@ interface User {
     id: string;
     username: string;
     email: string;
+    displayName: string;
+    bio: string;
+    location: string;
+    website: string;
+    avatar: string;
+    createdAt: string;
     skillsHave: string[];
     skillsWant: string[];
 }
@@ -41,6 +47,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     id: response.data._id,
                     username: response.data.username,
                     email: response.data.email,
+                    displayName: response.data.displayName || '',
+                    bio: response.data.bio || '',
+                    location: response.data.location || '',
+                    website: response.data.website || '',
+                    avatar: response.data.avatar || '',
+                    createdAt: response.data.createdAt || '',
                     skillsHave: response.data.skillsHave || [],
                     skillsWant: response.data.skillsWant || [],
                 });
@@ -58,6 +70,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             id: response.data.user.id,
             username: response.data.user.username,
             email: response.data.user.email,
+            displayName: '',
+            bio: '',
+            location: '',
+            website: '',
+            avatar: '',
+            createdAt: '',
             skillsHave: [],
             skillsWant: [],
         });
@@ -71,6 +89,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             id: response.data.user.id,
             username: response.data.user.username,
             email: response.data.user.email,
+            displayName: '',
+            bio: '',
+            location: '',
+            website: '',
+            avatar: '',
+            createdAt: '',
             skillsHave: [],
             skillsWant: [],
         });

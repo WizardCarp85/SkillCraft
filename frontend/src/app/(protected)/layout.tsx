@@ -32,10 +32,12 @@ export default function ProtectedLayout({
     }
 
     return (
-        <div className="min-h-screen bg-black">
+        <div className="min-h-screen bg-black flex">
             <Navbar />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {children}
+            <main className="flex-1 ml-64 px-4 sm:px-6 lg:px-8 py-8">
+                <div className="max-w-7xl mx-auto">
+                    {children}
+                </div>
             </main>
         </div>
     );

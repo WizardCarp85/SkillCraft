@@ -1,14 +1,23 @@
 const User = require('../model/User');
 
-// Update user's skills profile
+// Update user's profile
 const updateProfile = async (req, res) => {
     try {
-        const { skillsHave, skillsWant } = req.body;
+        const { skillsHave, skillsWant, displayName, bio, location, website, avatar } = req.body;
         const userId = req.user.userId;
+
+        const updateData = {};
+        if (skillsHave !== undefined) updateData.skillsHave = skillsHave;
+        if (skillsWant !== undefined) updateData.skillsWant = skillsWant;
+        if (displayName !== undefined) updateData.displayName = displayName;
+        if (bio !== undefined) updateData.bio = bio;
+        if (location !== undefined) updateData.location = location;
+        if (website !== undefined) updateData.website = website;
+        if (avatar !== undefined) updateData.avatar = avatar;
 
         const updatedUser = await User.findByIdAndUpdate(
             userId,
-            { skillsHave, skillsWant },
+            updateData,
             { new: true }
         ).select('-password');
 
