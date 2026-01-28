@@ -163,7 +163,7 @@ export default function ProfilePage() {
                     />
                     <button
                         onClick={() => addSkill('want')}
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-xl hover:from-blue-500 hover:to-cyan-500 transition-all shadow-lg"
+                        className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-blue-600 to-cyan-600 text-white rounded-xl hover:from-blue-500 hover:to-cyan-500 transition-all shadow-lg"
                     >
                         <Plus className="w-4 h-4" />
                         Add

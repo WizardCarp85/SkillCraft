@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Lock, User, ArrowRight, Check, TrendingUp, Users, Sparkles } from 'lucide-react';
+import { Lock, User, ArrowRight, Check, TrendingUp, Users, Sparkles, Eye, EyeOff } from 'lucide-react';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const { login } = useAuth();
@@ -30,7 +31,7 @@ export default function LoginPage() {
     return (
         <div className="min-h-screen bg-black flex">
             {/* Left Side - Benefits */}
-            <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-zinc-900 to-black items-center justify-center p-12 shadow-[inset_-20px_0_30px_-15px_rgba(0,0,0,0.3)]">
+            <div className="hidden lg:flex lg:w-1/2 bg-linear-to-br from-zinc-900 to-black items-center justify-center p-12 shadow-[inset_-20px_0_30px_-15px_rgba(0,0,0,0.3)]">
                 <div className="max-w-lg">
                     <div className="mb-12">
                         <Sparkles className="w-16 h-16 text-green-400 mb-6 animate-float" />
@@ -44,7 +45,7 @@ export default function LoginPage() {
 
                     <div className="space-y-6">
                         <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-smooth hover:bg-white/10">
-                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center shrink-0">
                                 <Check className="w-5 h-5 text-green-400" />
                             </div>
                             <div>
@@ -54,7 +55,7 @@ export default function LoginPage() {
                         </div>
 
                         <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-smooth hover:bg-white/10">
-                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center shrink-0">
                                 <TrendingUp className="w-5 h-5 text-green-400" />
                             </div>
                             <div>
@@ -64,7 +65,7 @@ export default function LoginPage() {
                         </div>
 
                         <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 animate-smooth hover:bg-white/10">
-                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center shrink-0">
                                 <Users className="w-5 h-5 text-green-400" />
                             </div>
                             <div>
@@ -74,12 +75,12 @@ export default function LoginPage() {
                         </div>
                     </div>
 
-                    <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
+                    <div className="mt-12 p-6 rounded-2xl bg-linear-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
                         <p className="text-gray-300 italic mb-3">
                             &quot;SkillCraft transformed how I learn. I&apos;ve mastered 3 new skills this month!&quot;
                         </p>
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600"></div>
+                            <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-500 to-emerald-600"></div>
                             <div>
                                 <p className="text-white font-medium">Sarah Chen</p>
                                 <p className="text-gray-400 text-sm">Active Member</p>
@@ -92,6 +93,12 @@ export default function LoginPage() {
             {/* Right Side - Form */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
                 <div className="w-full max-w-md">
+                    {/* Back to Home */}
+                    <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-green-400 animate-smooth mb-8 group">
+                        <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 animate-smooth" />
+                        <span className="text-sm font-medium">Back to Home</span>
+                    </Link>
+
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-3 mb-12 group">
                         <div className="relative w-12 h-12 rounded-xl overflow-hidden ring-1 ring-white/10 group-hover:ring-green-500/30 animate-smooth">
@@ -139,15 +146,22 @@ export default function LoginPage() {
                                 Password
                             </label>
                             <div className="relative">
-                                <Lock className="absolute left-4 top-4 w-5 h-5 text-gray-500" />
+                                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                                 <input
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-4 bg-zinc-900/50 border border-zinc-800/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent animate-smooth"
+                                    className="w-full pl-12 pr-12 py-4 bg-zinc-900/50 border border-zinc-800/50 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent animate-smooth"
                                     placeholder="Enter your password"
                                     required
                                 />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 animate-smooth cursor-pointer"
+                                >
+                                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                                </button>
                             </div>
                         </div>
 

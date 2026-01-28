@@ -24,41 +24,43 @@ export default function HomePage() {
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent_50%)] pointer-events-none"></div>
             
             {/* Hero Section */}
-            <div className="relative w-full px-4 sm:px-6 lg:px-8 pt-6 pb-20">
+            <div className="relative w-full min-h-screen flex flex-col pt-6">
                 {/* Enhanced Navbar */}
-                <nav className="max-w-7xl mx-auto backdrop-blur-md bg-black/40 border border-white/10 rounded-xl px-6 py-3 mb-16 sticky top-4 z-50 animate-smooth">
-                    <div className="flex items-center justify-between">
-                        <Link href="/" className="text-xl font-bold text-white flex items-center gap-2 group">
-                            <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-1 ring-white/10 group-hover:ring-green-500/50 animate-smooth">
-                                <Image 
-                                    src="/logo.png" 
-                                    alt="SkillCraft Logo" 
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <span className="hidden sm:inline">Skill<span className="text-green-400">Craft</span></span>
-                        </Link>
+                <div className="w-full px-4 sm:px-6 lg:px-8 mb-8">
+                    <nav className="max-w-7xl mx-auto backdrop-blur-md bg-black/40 border border-white/10 rounded-xl px-6 py-4 sticky top-4 z-50 animate-smooth">
+                        <div className="flex items-center justify-between">
+                            <Link href="/" className="text-2xl font-bold text-white flex items-center gap-3 group">
+                                <div className="relative w-10 h-10 rounded-lg overflow-hidden ring-1 ring-white/10 group-hover:ring-green-500/50 animate-smooth">
+                                    <Image 
+                                        src="/logo.png" 
+                                        alt="SkillCraft Logo" 
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <span className="hidden sm:inline">Skill<span className="text-green-400">Craft</span></span>
+                            </Link>
                         
-                        <div className="flex items-center gap-3">
-                            <Link
-                                href="/login"
-                                className="px-4 py-2 text-gray-300 hover:text-white animate-smooth font-medium hover:bg-white/5 rounded-lg text-sm"
-                            >
-                                Login
-                            </Link>
-                            <Link
-                                href="/register"
-                                className="px-5 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-500 hover:to-emerald-500 animate-smooth shadow-md shadow-green-500/20 hover:shadow-green-500/30 text-sm"
-                            >
-                                Sign Up Free
-                            </Link>
+                            <div className="flex items-center gap-4">
+                                <Link
+                                    href="/login"
+                                    className="px-5 py-2.5 text-gray-300 hover:text-white animate-smooth font-medium hover:bg-white/5 rounded-lg"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    href="/register"
+                                    className="px-6 py-2.5 bg-linear-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-500 hover:to-emerald-500 animate-smooth shadow-md shadow-green-500/20 hover:shadow-green-500/30"
+                                >
+                                    Sign Up Free
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
 
-                <div className="text-center max-w-4xl mx-auto">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 mb-6 animate-smooth hover:bg-green-500/15">
+                <div className="text-center max-w-4xl mx-auto flex-1 flex flex-col justify-center pb-20 px-4 sm:px-6 lg:px-8">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 mb-6 animate-smooth hover:bg-green-500/15 mx-auto">
                         <Sparkles className="w-4 h-4 text-green-400 animate-pulse" />
                         <span className="text-green-400 text-sm font-medium">Join 10,000+ skill swappers worldwide</span>
                     </div>
@@ -66,10 +68,10 @@ export default function HomePage() {
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
                         Learn by{' '}
                         <span className="relative inline-block">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-green-500">
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-green-400 via-emerald-400 to-green-500">
                                 Teaching
                             </span>
-                            <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-400 blur-2xl opacity-20 animate-pulse"></div>
+                            <div className="absolute -inset-1 bg-linear-to-r from-green-400 to-emerald-400 blur-2xl opacity-20 animate-pulse"></div>
                         </span>
                     </h1>
                     
@@ -81,7 +83,7 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
                         <Link
                             href="/register"
-                            className="group px-8 py-3.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:from-green-500 hover:to-emerald-500 transform hover:scale-105 animate-smooth text-base shadow-lg shadow-green-500/30 hover:shadow-green-500/50 flex items-center justify-center gap-2"
+                            className="group px-8 py-3.5 bg-linear-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:from-green-500 hover:to-emerald-500 transform hover:scale-105 animate-smooth text-base shadow-lg shadow-green-500/30 hover:shadow-green-500/50 flex items-center justify-center gap-2"
                         >
                             Get Started Free
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 animate-smooth" />
@@ -113,7 +115,7 @@ export default function HomePage() {
             </div>
 
             {/* How It Works */}
-            <section id="how-it-works" className="relative py-24 bg-gradient-to-b from-zinc-900/50 to-black w-full">
+            <section id="how-it-works" className="relative py-24 bg-linear-to-b from-zinc-900/50 to-black w-full">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -126,7 +128,7 @@ export default function HomePage() {
                     
                     <div className="grid md:grid-cols-3 gap-6 relative">
                         {/* Connection lines */}
-                        <div className="hidden md:block absolute top-1/3 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-500/30 to-transparent"></div>
+                        <div className="hidden md:block absolute top-1/3 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-green-500/30 to-transparent"></div>
                         
                         {[
                             {
@@ -138,7 +140,7 @@ export default function HomePage() {
                                 delay: 'delay-0'
                             },
                             {
-                                icon: <Search className="w-10 h-10" />,
+                                icon: <Search className="w-8 h-8" />,
                                 step: '02',
                                 title: 'Find Perfect Matches',
                                 description: 'Our smart algorithm connects you with people who have complementary skills and learning goals.',
@@ -158,7 +160,7 @@ export default function HomePage() {
                                 key={index}
                                 className={`relative group ${step.delay}`}
                             >
-                                <div className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-green-500/20">
+                                <div className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-green-500/20 min-h-[280px] flex flex-col">
                                     {/* Step number */}
                                     <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-linear-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-green-500/50">
                                         {step.step}
@@ -232,7 +234,7 @@ export default function HomePage() {
             </section>
 
             {/* Skills Showcase */}
-            <section className="relative py-24 bg-gradient-to-b from-black to-zinc-900/50 w-full">
+            <section className="relative py-24 bg-linear-to-b from-black to-zinc-900/50 w-full">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -268,13 +270,13 @@ export default function HomePage() {
             </section>
 
             {/* Testimonials */}
-            <section className="relative py-32">
+            <section className="relative py-20 bg-linear-to-b from-zinc-900/50 via-zinc-900/30 to-zinc-900/50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             Success <span className="text-green-400">Stories</span>
                         </h2>
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                             Real people, real skills, real results
                         </p>
                     </div>
@@ -302,12 +304,12 @@ export default function HomePage() {
                         ].map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-3xl p-8 border border-zinc-800/50 hover:border-green-500/30 transition-all duration-300 group"
+                                className="relative bg-linear-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800/50 hover:border-green-500/30 transition-all duration-300 group"
                             >
                                 {/* Rating stars */}
-                                <div className="flex gap-1 mb-4">
+                                <div className="flex gap-1 mb-3">
                                     {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                                     ))}
                                 </div>
                                 
@@ -330,23 +332,23 @@ export default function HomePage() {
             </section>
 
             {/* Stats */}
-            <section className="relative py-32 bg-gradient-to-b from-zinc-900/50 to-black">
+            <section className="relative py-20 bg-linear-to-b from-zinc-900/50 to-black">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-3 gap-12">
+                    <div className="grid md:grid-cols-3 gap-8">
                         {[
-                            { icon: <Users className="w-10 h-10" />, stat: '10,000+', label: 'Active Users', color: 'from-green-500 to-emerald-500' },
-                            { icon: <Handshake className="w-10 h-10" />, stat: '25,000+', label: 'Skills Swapped', color: 'from-blue-500 to-cyan-500' },
-                            { icon: <Star className="w-10 h-10" />, stat: '4.9/5', label: 'User Rating', color: 'from-purple-500 to-pink-500' },
+                            { icon: <Users className="w-8 h-8" />, stat: '10,000+', label: 'Active Users', color: 'from-green-500 to-emerald-500' },
+                            { icon: <Handshake className="w-8 h-8" />, stat: '25,000+', label: 'Skills Swapped', color: 'from-blue-500 to-cyan-500' },
+                            { icon: <Star className="w-8 h-8" />, stat: '4.9/5', label: 'User Rating', color: 'from-purple-500 to-pink-500' },
                         ].map((item, index) => (
                             <div
                                 key={index}
                                 className="text-center group"
                             >
-                                <div className={`inline-flex p-6 rounded-2xl bg-linear-to-br ${item.color} mb-6 group-hover:scale-110 transition-transform shadow-2xl`}>
+                                <div className={`inline-flex p-4 rounded-xl bg-linear-to-br ${item.color} mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
                                     <div className="text-white">{item.icon}</div>
                                 </div>
-                                <h3 className="text-5xl md:text-6xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">{item.stat}</h3>
-                                <p className="text-gray-400 text-lg">{item.label}</p>
+                                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">{item.stat}</h3>
+                                <p className="text-gray-400">{item.label}</p>
                             </div>
                         ))}
                     </div>
@@ -354,21 +356,21 @@ export default function HomePage() {
             </section>
 
             {/* Trust & Safety */}
-            <section className="relative py-32">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative bg-linear-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-xl rounded-3xl p-12 md:p-16 text-center border border-green-500/20 overflow-hidden">
+            <section className="relative py-20">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="relative bg-linear-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-xl rounded-2xl p-8 md:p-10 text-center border border-green-500/20 overflow-hidden">
                         {/* Decorative elements */}
-                        <div className="absolute top-0 left-0 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"></div>
-                        <div className="absolute bottom-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                        <div className="absolute top-0 left-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl"></div>
                         
                         <div className="relative">
-                            <div className="inline-flex p-5 rounded-2xl bg-linear-to-br from-green-500 to-emerald-500 mb-8 shadow-2xl shadow-green-500/50">
-                                <Shield className="w-14 h-14 text-white" />
+                            <div className="inline-flex p-4 rounded-xl bg-linear-to-br from-green-500 to-emerald-500 mb-6 shadow-lg shadow-green-500/50">
+                                <Shield className="w-10 h-10 text-white" />
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 Safe & Secure Platform
                             </h2>
-                            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                            <p className="text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
                                 Your privacy and safety are our top priorities. All communications happen within our secure platform,
                                 and we never share your personal information. Learn with confidence.
                             </p>
@@ -378,18 +380,18 @@ export default function HomePage() {
             </section>
 
             {/* Final CTA */}
-            <section className="relative py-32">
+            <section className="relative py-20">
                 <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-5xl md:text-7xl font-bold text-white mb-6">
-                        Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">Start?</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        Ready to <span className="text-transparent bg-clip-text bg-linear-to-r from-green-400 to-emerald-400">Start?</span>
                     </h2>
-                    <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                         Join thousands of learners exchanging skills every day. It&apos;s completely free.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="/register"
-                            className="group px-12 py-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-500 hover:to-emerald-500 animate-smooth text-xl shadow-2xl shadow-green-500/50 hover:shadow-green-500/70 hover:scale-105 flex items-center justify-center gap-3"
+                            className="group px-12 py-6 bg-linear-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:from-green-500 hover:to-emerald-500 animate-smooth text-xl shadow-2xl shadow-green-500/50 hover:shadow-green-500/70 hover:scale-105 flex items-center justify-center gap-3"
                         >
                             Create Free Account
                             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 animate-smooth" />
